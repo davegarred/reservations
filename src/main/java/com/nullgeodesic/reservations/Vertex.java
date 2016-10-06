@@ -16,45 +16,43 @@ public class Vertex {
 
 	@Override
 	public String toString() {
-		return this.customer + " - " + this.date + "]";
+		return "Vertex [customer=" + customer + ", date=" + date + ", reservation=" + reservation + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((this.customer == null) ? 0 : this.customer.hashCode());
-		result = prime * result + ((this.date == null) ? 0 : this.date.hashCode());
+		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((reservation == null) ? 0 : reservation.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if(obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if(getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
-		final Vertex other = (Vertex) obj;
-		if(this.customer == null) {
-			if(other.customer != null) {
+		Vertex other = (Vertex) obj;
+		if (customer == null) {
+			if (other.customer != null)
 				return false;
-			}
-		} else if(!this.customer.equals(other.customer)) {
+		} else if (!customer.equals(other.customer))
 			return false;
-		}
-		if(this.date == null) {
-			if(other.date != null) {
+		if (date == null) {
+			if (other.date != null)
 				return false;
-			}
-		} else if(!this.date.equals(other.date)) {
+		} else if (!date.equals(other.date))
 			return false;
-		}
+		if (reservation == null) {
+			if (other.reservation != null)
+				return false;
+		} else if (!reservation.equals(other.reservation))
+			return false;
 		return true;
 	}
-
 }

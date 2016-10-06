@@ -33,6 +33,11 @@ public class Reservation {
 
 
 	@Override
+	public String toString() {
+		return "Reservation [customer=" + customer + ", arrival=" + arrival + ", departure=" + departure + "]";
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
