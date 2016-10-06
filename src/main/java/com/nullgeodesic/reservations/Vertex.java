@@ -6,10 +6,12 @@ public class Vertex {
 
 	public final String customer;
 	public final LocalDate date;
+	public final Reservation reservation;
 
-	public Vertex(String customer, LocalDate date) {
+	public Vertex(String customer, LocalDate date, Reservation reservation) {
 		this.customer = customer;
 		this.date = date;
+		this.reservation = reservation;
 	}
 
 	@Override
