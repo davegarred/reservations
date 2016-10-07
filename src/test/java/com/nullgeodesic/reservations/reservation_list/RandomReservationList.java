@@ -43,7 +43,7 @@ public class RandomReservationList extends ArrayList<Reservation> {
 
 	private Customer randomCustomer() {
 		final Customer prototypeCustomer = ALL_CUSTOMERS.get(this.random.nextInt(ALL_CUSTOMERS.size()));
-		return new Customer(prototypeCustomer.name + "_" + this.random.nextInt(1000));
+		return new Customer(prototypeCustomer.name + "_" + this.random.nextInt(10000));
 	}
 
 }
