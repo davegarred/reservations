@@ -2,9 +2,9 @@ package com.nullgeodesic.reservations;
 
 import static com.nullgeodesic.reservations.Customer.END;
 import static com.nullgeodesic.reservations.Customer.START;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -94,7 +94,7 @@ public class ReservationGraph {
 		if(sourceVertex.reservation !=null && sourceVertex.reservation.equals(targetVertex.reservation)) {
 			return 0.0;
 		}
-		final long days = ChronoUnit.DAYS.between(sourceVertex.date, targetVertex.date);
+		final long days = DAYS.between(sourceVertex.date, targetVertex.date);
 		return days;
 	}
 

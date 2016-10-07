@@ -2,9 +2,11 @@ package com.nullgeodesic.reservations;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
-public class Reservation {
+public class Reservation extends AbstractObject {
 
+	private static final DateTimeFormatter CLEAN_DATE_PATTERN = DateTimeFormatter.ofPattern("MMMM d, YYYY");
 	public final Customer customer;
 	public final LocalDate arrival;
 	public final LocalDate departure;
@@ -32,55 +34,8 @@ public class Reservation {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Reservation [customer=" + this.customer + ", arrival=" + this.arrival + ", departure=" + this.departure + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((this.arrival == null) ? 0 : this.arrival.hashCode());
-		result = prime * result + ((this.customer == null) ? 0 : this.customer.hashCode());
-		result = prime * result + ((this.departure == null) ? 0 : this.departure.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(this == obj) {
-			return true;
-		}
-		if(obj == null) {
-			return false;
-		}
-		if(getClass() != obj.getClass()) {
-			return false;
-		}
-		final Reservation other = (Reservation) obj;
-		if(this.arrival == null) {
-			if(other.arrival != null) {
-				return false;
-			}
-		} else if(!this.arrival.equals(other.arrival)) {
-			return false;
-		}
-		if(this.customer == null) {
-			if(other.customer != null) {
-				return false;
-			}
-		} else if(!this.customer.equals(other.customer)) {
-			return false;
-		}
-		if(this.departure == null) {
-			if(other.departure != null) {
-				return false;
-			}
-		} else if(!this.departure.equals(other.departure)) {
-			return false;
-		}
-		return true;
+	public String format() {
+		return String.format("%s\n\tArrives: %s\n\tDeparts: %s",this.customer, this.arrival.format(CLEAN_DATE_PATTERN), this.departure.format(CLEAN_DATE_PATTERN));
 	}
 
 }
