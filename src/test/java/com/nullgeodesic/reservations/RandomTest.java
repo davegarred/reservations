@@ -5,7 +5,7 @@ import static java.time.Month.NOVEMBER;
 import java.time.LocalDate;
 import java.util.List;
 
-public class SimpleTest extends AbstractTest {
+public class RandomTest extends AbstractTest {
 
 	private static final LocalDate START_DATE = LocalDate.of(2016, NOVEMBER, 1);
 	private static final LocalDate END_DATE = LocalDate.of(2016, NOVEMBER, 30);
@@ -22,7 +22,7 @@ public class SimpleTest extends AbstractTest {
 
 	@Override
 	protected List<Reservation> reservations() {
-		return new ShortReservationList();
+		return new RandomReservationList(START_DATE, END_DATE);
 	}
 
 }

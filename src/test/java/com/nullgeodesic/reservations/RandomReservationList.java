@@ -2,7 +2,6 @@ package com.nullgeodesic.reservations;
 
 import static com.nullgeodesic.reservations.Customer.ALL_CUSTOMERS;
 import static com.nullgeodesic.reservations.Reservation.reservation;
-import static java.time.Month.NOVEMBER;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 import java.math.BigDecimal;
@@ -23,9 +22,21 @@ public class RandomReservationList extends ArrayList<Reservation> {
 		final int targetRoomNights = EFFICIENCY.multiply(NUMBER_OF_ROOMS).multiply(new BigDecimal(totalDaysInPeriod)).intValue();
 		int totalRoomNights = 0;
 		while(totalRoomNights < targetRoomNights) {
-			totalRoomNights += 3;
-			this.add(reservation(NOVEMBER, 1, 4, randomCustomer()));
+			final LocalDate arrivalDate = randomDate(startDate, totalDaysInPeriod);
+			final int totalNights = upToAWeekStay((int)DAYS.between(arrivalDate, endDate));
+			this.add(reservation(arrivalDate, totalNights, randomCustomer()));
+			totalRoomNights += totalNights;
 		}
+	}
+
+	private int upToAWeekStay(int maxLength) {
+		final int shortStay = this.random.nextInt(7);
+		return shortStay<maxLength ? shortStay+1 : maxLength;
+	}
+
+	private LocalDate randomDate(LocalDate startDate, int totalDaysInPeriod) {
+		final int daysFromStart = this.random.nextInt(totalDaysInPeriod - 1);
+		return startDate.plusDays(daysFromStart);
 	}
 
 	private Customer randomCustomer() {
