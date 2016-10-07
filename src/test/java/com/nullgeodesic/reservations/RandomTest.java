@@ -5,6 +5,9 @@ import static java.time.Month.NOVEMBER;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.nullgeodesic.reservations.domain.Reservation;
+import com.nullgeodesic.reservations.reservation_list.RandomReservationList;
+
 public class RandomTest extends AbstractTest {
 
 	private static final LocalDate START_DATE = LocalDate.of(2016, NOVEMBER, 1);

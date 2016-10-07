@@ -1,7 +1,7 @@
 package com.nullgeodesic.reservations;
 
-import static com.nullgeodesic.reservations.Customer.END;
-import static com.nullgeodesic.reservations.Customer.START;
+import static com.nullgeodesic.reservations.domain.Customer.END;
+import static com.nullgeodesic.reservations.domain.Customer.START;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 import java.time.LocalDate;
@@ -16,6 +16,9 @@ import java.util.TreeMap;
 import org.jgrapht.alg.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+
+import com.nullgeodesic.reservations.domain.Reservation;
+import com.nullgeodesic.reservations.domain.Vertex;
 
 public class ReservationGraph {
 

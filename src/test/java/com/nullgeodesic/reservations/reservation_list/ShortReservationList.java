@@ -1,9 +1,12 @@
-package com.nullgeodesic.reservations;
+package com.nullgeodesic.reservations.reservation_list;
 
-import static com.nullgeodesic.reservations.Reservation.reservation;
+import static com.nullgeodesic.reservations.domain.Reservation.reservation;
 import static java.time.Month.NOVEMBER;
 
 import java.util.ArrayList;
+
+import com.nullgeodesic.reservations.domain.Customer;
+import com.nullgeodesic.reservations.domain.Reservation;
 
 @SuppressWarnings("serial")
 public class ShortReservationList extends ArrayList<Reservation> {

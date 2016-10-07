@@ -1,4 +1,4 @@
-package com.nullgeodesic.reservations;
+package com.nullgeodesic.reservations.domain;
 
 import java.util.Arrays;
 import java.util.List;

@@ -10,6 +10,10 @@ import org.jgrapht.alg.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.junit.Test;
 
+import com.nullgeodesic.reservations.domain.Customer;
+import com.nullgeodesic.reservations.domain.Reservation;
+import com.nullgeodesic.reservations.domain.Vertex;
+
 public abstract class AbstractTest {
 
 	protected abstract LocalDate startDate();

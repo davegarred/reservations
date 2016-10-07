@@ -1,4 +1,4 @@
-package com.nullgeodesic.reservations;
+package com.nullgeodesic.reservations.domain;
 
 import java.time.LocalDate;
 import java.time.Month;
