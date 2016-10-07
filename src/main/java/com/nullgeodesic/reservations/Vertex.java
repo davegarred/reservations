@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class Vertex {
 
-	public final String customer;
+	public final Customer customer;
 	public final LocalDate date;
 	public final Reservation reservation;
 
-	public Vertex(String customer, LocalDate date, Reservation reservation) {
+	public Vertex(Customer customer, LocalDate date, Reservation reservation) {
 		this.customer = customer;
 		this.date = date;
 		this.reservation = reservation;
@@ -16,43 +16,52 @@ public class Vertex {
 
 	@Override
 	public String toString() {
-		return "Vertex [customer=" + customer + ", date=" + date + ", reservation=" + reservation + "]";
+		return "Vertex [customer=" + this.customer + ", date=" + this.date + ", reservation=" + this.reservation + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + ((reservation == null) ? 0 : reservation.hashCode());
+		result = prime * result + ((this.customer == null) ? 0 : this.customer.hashCode());
+		result = prime * result + ((this.date == null) ? 0 : this.date.hashCode());
+		result = prime * result + ((this.reservation == null) ? 0 : this.reservation.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
-		Vertex other = (Vertex) obj;
-		if (customer == null) {
-			if (other.customer != null)
+		}
+		final Vertex other = (Vertex) obj;
+		if (this.customer == null) {
+			if (other.customer != null) {
 				return false;
-		} else if (!customer.equals(other.customer))
+			}
+		} else if (!this.customer.equals(other.customer)) {
 			return false;
-		if (date == null) {
-			if (other.date != null)
+		}
+		if (this.date == null) {
+			if (other.date != null) {
 				return false;
-		} else if (!date.equals(other.date))
+			}
+		} else if (!this.date.equals(other.date)) {
 			return false;
-		if (reservation == null) {
-			if (other.reservation != null)
+		}
+		if (this.reservation == null) {
+			if (other.reservation != null) {
 				return false;
-		} else if (!reservation.equals(other.reservation))
+			}
+		} else if (!this.reservation.equals(other.reservation)) {
 			return false;
+		}
 		return true;
 	}
 }

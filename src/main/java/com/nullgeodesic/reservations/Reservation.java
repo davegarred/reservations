@@ -5,22 +5,22 @@ import java.time.Month;
 
 public class Reservation {
 
-	public final String customer;
+	public final Customer customer;
 	public final LocalDate arrival;
 	public final LocalDate departure;
 
-	public Reservation(String customer, LocalDate arrival, LocalDate departure) {
+	public Reservation(Customer customer, LocalDate arrival, LocalDate departure) {
 		this.customer = customer;
 		this.arrival = arrival;
 		this.departure = departure;
 	}
 
-	public static Reservation reservation(String customer, int arrivalYear, int arrivalMonth, int arrivalDay, int days) {
+	public static Reservation reservation(Customer customer, int arrivalYear, int arrivalMonth, int arrivalDay, int days) {
 		final LocalDate arrival = LocalDate.of(arrivalYear, arrivalMonth, arrivalDay);
 		final LocalDate departure = arrival.plusDays(days);
 		return new Reservation(customer, arrival, departure);
 	}
-	public static Reservation reservation(Month arrivalMonth, int arrivalDay, int days, String customer) {
+	public static Reservation reservation(Month arrivalMonth, int arrivalDay, int days, Customer customer) {
 		final LocalDate now = LocalDate.now();
 		final int currentYear = now.getYear();
 		final LocalDate tentativeArrival = LocalDate.of(currentYear, arrivalMonth, arrivalDay);
@@ -34,7 +34,7 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "Reservation [customer=" + customer + ", arrival=" + arrival + ", departure=" + departure + "]";
+		return "Reservation [customer=" + this.customer + ", arrival=" + this.arrival + ", departure=" + this.departure + "]";
 	}
 
 	@Override
